@@ -40,7 +40,7 @@ public class NeuroLiftFoundation
 
         var baseComponents = defaults.GetValueOrDefault(mode, new ActiveComponents(false, false, false));
 
-        bool Pick(bool? overrideValue, bool fallback) => fallback;
+        bool Pick(bool? overrideValue, bool fallback) => overrideValue ?? fallback;
 
         return new ActiveComponents(
             Pick(overrides?.ToiOtoiFramework, baseComponents.Toi),
