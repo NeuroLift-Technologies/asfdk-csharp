@@ -1,0 +1,11 @@
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/Asfdk.GeneratedMSBuildEditorConfig.editorconfig
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/Asfdk.AssemblyInfoInputs.cache
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/Asfdk.AssemblyInfo.cs
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/Asfdk.csproj.CoreCompileInputs.cache
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/bin/Debug/net8.0/Asfdk.deps.json
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/bin/Debug/net8.0/Asfdk.dll
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/bin/Debug/net8.0/Asfdk.pdb
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/Asfdk.dll
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/refint/Asfdk.dll
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/Asfdk.pdb
+/home/joshd/Desktop/nlt-repos/asfdk-csharp/src/Asfdk/obj/Debug/net8.0/ref/Asfdk.dll

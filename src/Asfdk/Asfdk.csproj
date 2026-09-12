@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Asfdk</RootNamespace>
+    <AssemblyName>Asfdk</AssemblyName>
+    <Version>0.3.0</Version>
+    <Description>Agent Solidarity Framework Development Kit - C# port</Description>
+  </PropertyGroup>
+</Project>
