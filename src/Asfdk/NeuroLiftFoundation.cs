@@ -27,6 +27,15 @@ public class NeuroLiftFoundation
         }
     }
 
+    /// <summary>
+    /// Resolves the active component set for a foundation mode, honoring any
+    /// per-component overrides from <see cref="FoundationComponents"/>. An
+    /// explicit override (true or false) always wins; components without an
+    /// override fall back to the mode's default.
+    /// </summary>
+    /// <param name="mode">Foundation mode supplying the default component flags.</param>
+    /// <param name="overrides">Optional per-component overrides; null entries defer to the mode default.</param>
+    /// <returns>The effective active-component configuration for this foundation instance.</returns>
     private static ActiveComponents ComponentsForMode(FoundationMode mode, FoundationComponents? overrides)
     {
         var defaults = new Dictionary<FoundationMode, ActiveComponents>
@@ -40,12 +49,11 @@ public class NeuroLiftFoundation
 
         var baseComponents = defaults.GetValueOrDefault(mode, new ActiveComponents(false, false, false));
 
-        bool Pick(bool? overrideValue, bool fallback) => overrideValue ?? fallback;
-
+        // An explicit per-component override wins; otherwise fall back to the mode default.
         return new ActiveComponents(
-            Pick(overrides?.ToiOtoiFramework, baseComponents.Toi),
-            Pick(overrides?.SleepwalkerProtocol, baseComponents.Swp),
-            Pick(overrides?.RrtAdvocate, baseComponents.Rrt)
+            overrides?.ToiOtoiFramework ?? baseComponents.Toi,
+            overrides?.SleepwalkerProtocol ?? baseComponents.Swp,
+            overrides?.RrtAdvocate ?? baseComponents.Rrt
         );
     }
 

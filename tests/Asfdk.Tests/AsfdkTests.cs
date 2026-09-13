@@ -110,6 +110,12 @@ public class AsfdkTests
         Assert.Equal(CrisisLevel.Green, assessment.CrisisLevel);
     }
 
+    /// <summary>
+    /// Per-component <see cref="FoundationComponents"/> overrides must win over
+    /// mode defaults: components explicitly set to false are inactive, while
+    /// components without an override retain their mode default (active in
+    /// Unified mode).
+    /// </summary>
     [Fact]
     public async Task Foundation_ComponentsOverride_ShouldBeHonored()
     {

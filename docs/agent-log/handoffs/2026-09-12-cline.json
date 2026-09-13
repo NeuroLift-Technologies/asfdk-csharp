@@ -1,0 +1,38 @@
+{
+  "handoff_record": {
+    "session_id": "asfdk-csharp-port-2026-09-12",
+    "agent_name": "Cline (csharp_governance_agent)",
+    "date": "2026-09-12",
+    "repo": "NeuroLift-Technologies/asfdk-csharp",
+    "branch": "feature/port-asfdk-csharp",
+    "work_completed": [
+      "Clean-room port of ASFDK from TypeScript/Python to C#/.NET (net10.0): orchestrator, PromptDefense, ToiOtoi, Sleepwalker, Rrt integrations (commit e253cac, on main)",
+      "Fixed ComponentsForMode to honor FoundationComponents overrides (overrideValue ?? fallback; Pick local function inlined) with regression test Foundation_ComponentsOverride_ShouldBeHonored, verified failing pre-fix (commit 88020d2)",
+      "Added XML docstrings to ComponentsForMode and the new test method per CodeRabbit docstring-coverage finding",
+      "Created docs/active-threads.md, this handoff record, and docs/escalations/README.md per PR template Before-Merging checklist",
+      "PR #1 retitled to fix scope and body rebuilt verbatim from PULL_REQUEST_TEMPLATE/agent-contribution.md"
+    ],
+    "work_in_progress": [],
+    "blockers": [],
+    "decisions_made": [
+      "Override semantics: an explicit FoundationComponents value (true or false) wins over the mode default; null defers to the default (matches TS reference behavior)",
+      "PR #1 scoped as a fix (not the port) because the port commit e253cac already landed on main; PR title/body updated accordingly"
+    ],
+    "decisions_pending": [],
+    "escalations": [],
+    "next_agent_notes": "PR #1 (feature/port-asfdk-csharp -> main) awaits human merge approval. Environment note: GH_TOKEN env var is a read-only fine-grained PAT; use 'env -u GH_TOKEN' with gh/git so the keyring token (repo scope) is used for writes. Pre-existing CS8601 warnings (2x) in NeuroLiftFoundation.cs are cosmetic and unchanged from base.",
+    "files_modified": [
+      "src/Asfdk/NeuroLiftFoundation.cs",
+      "tests/Asfdk.Tests/AsfdkTests.cs",
+      "docs/active-threads.md",
+      "docs/agent-log/handoffs/2026-09-12-cline.json",
+      "docs/escalations/README.md"
+    ],
+    "tests_run": [
+      "dotnet build src/Asfdk (0 errors)",
+      "dotnet test tests/Asfdk.Tests (14/14 passed)",
+      "bash .nltotoi/scripts/validate-governance.sh (22/22 passed)"
+    ],
+    "tests_passing": true
+  }
+}
