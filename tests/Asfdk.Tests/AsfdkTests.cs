@@ -109,4 +109,38 @@ public class AsfdkTests
         var assessment = await Rrt.Assess("test-user", "Hello, how are you?");
         Assert.Equal(CrisisLevel.Green, assessment.CrisisLevel);
     }
+
+    /// <summary>
+    /// Per-component <see cref="FoundationComponents"/> overrides must win over
+    /// mode defaults: components explicitly set to false are inactive, while
+    /// components without an override retain their mode default (active in
+    /// Unified mode).
+    /// </summary>
+    [Fact]
+    public async Task Foundation_ComponentsOverride_ShouldBeHonored()
+    {
+        var foundation = await CreateFoundation.Create(new FoundationConfig
+        {
+            UserId = "test-user",
+            Mode = FoundationMode.Unified,
+            Components = new FoundationComponents
+            {
+                RrtAdvocate = false,
+                SleepwalkerProtocol = false
+            }
+        });
+
+        var status = foundation.GetSystemStatus();
+        var components = Assert.IsType<Dictionary<string, object>>(status["components"]);
+
+        var rrt = Assert.IsType<ComponentStatus>(components["rrt_advocate"]);
+        Assert.False(rrt.Active);
+
+        var swp = Assert.IsType<ComponentStatus>(components["sleepwalker_protocol"]);
+        Assert.False(swp.Active);
+
+        // No override for TOI -> mode default (enabled in Unified) still applies.
+        var toi = Assert.IsType<ComponentStatus>(components["toi_otoi_framework"]);
+        Assert.True(toi.Active);
+    }
 }
